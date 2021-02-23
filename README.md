@@ -1,6 +1,6 @@
-# Project Name
+# FEC Description Service/Module
 
-> Project description
+> This project displays the description of a listing similar to airbnb. It contains a whole ecosystem of a ui, server, and database.
 
 ## Related Projects
 
