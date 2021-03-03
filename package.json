@@ -1,17 +1,24 @@
 {
-  "name": "",
+  "name": "fec-airbnb-description",
   "version": "",
-  "description": "",
-  "author": "",
+  "description": "This is a service that provides the description portion of an Airbnb listing",
+  "author": "jrudio",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "lint-server": "npx eslint server"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "mongoose": "^5.11.18"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "babel-preset-airbnb": "^5.0.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
   }
 }
