@@ -41,7 +41,8 @@ const AmenitiesSchema = new Schema({
 });
 
 const ListingHighlightsSchema = new Schema({
-  houseRules: HouseRulesSchema, // listings don't require house rules: https://www.airbnb.com/rooms/42150674
+  title: String,
+  subtitle: String
 });
 
 const HealthAndSafetySchema = new Schema({
@@ -60,11 +61,16 @@ const HealthAndSafetySchema = new Schema({
 const ListingSchema = new Schema({
   minimumPricePerNight: Number, // Weekends and holidays can make this fluctuate
   roomCount: Number,
+  roomType Number,
+  bedCount: Number,
   bathroomCount: Number,
+  sharedBathroomCount: Number,
   maxGuestCount: Number,
   description: String,
-  listingHighlights: ListingHighlightsSchema,
-  amenities: [ AmenitiesSchema ],
+  listingHighlights: [ ListingHighlightsSchema ],
+  cancellationPolicy: String,
+  houseRules: HouseRulesSchema, // listings don't require house rules: https://www.airbnb.com/rooms/42150674
   sleepingArrangements: [ SleepingArrangementSchema ], // it's possible there are no sleeping arrangements: https://www.airbnb.com/rooms/42150674
+  amenities: [ AmenitiesSchema ],
   healthAndSafety: HealthAndSafetySchema
 });
