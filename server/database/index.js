@@ -61,7 +61,7 @@ const HealthAndSafetySchema = new Schema({
 const ListingSchema = new Schema({
   minimumPricePerNight: Number, // Weekends and holidays can make this fluctuate
   roomCount: Number,
-  roomType Number,
+  roomType: Number,
   bedCount: Number,
   bathroomCount: Number,
   sharedBathroomCount: Number,
