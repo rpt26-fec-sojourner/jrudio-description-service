@@ -1,12 +1,26 @@
-import { Schema } from 'mongoose';
+const mongoose = require('mongoose');
+const username = process.env.MONGO_USER;
+const password = process.env.MONGO_PASSWORD;
+const host = process.env.MONGO_HOST || 'localhost';
+const port = process.env.MONGO_PORT || 27017;
+const database = 'description_service';
+let db = null;
+
+if (username) {
+  db = mongoose.connect(`mongodb://${username}:${password}@${host}:${port}/${database}`, { useNewUrlParser: true });
+} else {
+  db = mongoose.connect(`mongodb://${host}:${port}/${database}`, { useNewUrlParser: true });
+}
+
+const Schema = mongoose.Schema;
 
 // Listing Collection
-const ThingsAllowedSchema = new Schema({
+const ThingsAllowedSchema = {
   smoking: Boolean,
   pets: Boolean,
   parties: Boolean,
   longTerm: Boolean
-});
+};
 
 /*
   Sleeping arrangement examples:
@@ -19,49 +33,50 @@ const ThingsAllowedSchema = new Schema({
     1 queen bed     1 sofa bed
 
 */
-const SleepingArrangementSchema = new Schema({
+const SleepingArrangementSchema = {
   name: String,
   subtitle: String
-});
+};
 
-const HouseRulesSchema = new Schema({
+const HouseRulesSchema = {
   checkIn: String,
   checkOut: String,
   selfCheckIn: Boolean,
   additionalRules: String,
   allowed: ThingsAllowedSchema
-});
+};
 
-const AmenitiesSchema = new Schema({
+const AmenitiesSchema = {
   title: String, // e.g. Basic, Facilities, Dining, Guest Access, etc
-  amenity: [ new Schema({
-    name: string,
+  amenity: [ {
+    name: String,
     isAvailable: Boolean // this controls whethere the amenity has a strikethrough
-  }) ]
-});
+  } ]
+};
 
-const ListingHighlightsSchema = new Schema({
+const ListingHighlightsSchema = {
+  // TODO: add an icon field here
   title: String,
   subtitle: String
-});
+};
 
-const HealthAndSafetySchema = new Schema({
-  notes: [ new Schema({
+const HealthAndSafetySchema = {
+  notes: [ {
     icon: String,
     text: String
-  }) ],
+  } ],
   mustAcknowledge: [
-    new Schema({
+    {
       icon: String,
       text: String
-    })
+    }
   ]
-});
+};
 
 const ListingSchema = new Schema({
   minimumPricePerNight: Number, // Weekends and holidays can make this fluctuate
   roomCount: Number,
-  roomType: Number,
+  roomType: String,
   bedCount: Number,
   bathroomCount: Number,
   sharedBathroomCount: Number,
@@ -74,3 +89,6 @@ const ListingSchema = new Schema({
   amenities: [ AmenitiesSchema ],
   healthAndSafety: HealthAndSafetySchema
 });
+
+module.exports.Listing = mongoose.model('Listing', ListingSchema);
+module.exports.db = db;

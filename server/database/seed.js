@@ -1,5 +1,6 @@
 const faker = require('faker');
 
+const { Listing, db } = require('../database');
 const { getRandomElement } = require('../helpers');
 
 const roomTypes = [
@@ -72,6 +73,27 @@ const bedTypes = [
   'floor mattress'
 ];
 
+const highlightExamples = [
+  {
+    title: 'Entire home',
+    // TODO: make this dynamic based on listing type
+    subtitle: 'You\'ll have the entire house to yourself.'
+  },
+  {
+    title: 'Enhanced Clean',
+    subtitle: 'This is host is committed to our 5-step enhanced cleaning process.'
+  },
+  {
+    title: 'Cancellation policy',
+    // TODO: make this dynamic based on end-user's selected dates
+    subtitle: 'Add your trip dates to get the cancellation details for this stay.'
+  },
+  {
+    title: 'Self check-in',
+    subtitle: 'Check yourself in with the keypad.'
+  }
+];
+
 // generateDescription returns a string of lorem ipsum
 const generateDescription = () => faker.lorem.paragraphs();
 
@@ -122,7 +144,17 @@ const generateSleepingArrangements = (bedCount) => {
 };
 
 // generateListHighlights returns an array of 5 random elements about the listing
-const generateListingHighlights = () => {};
+const generateListingHighlights = (listing = {}) => {
+  // let highlights = [];
+
+  // let generatedHighlights = [];
+
+  // TODO: generate some highlights based on listing: house rules, cancellation,
+  // is superhost, great location,
+
+  return highlightExamples;
+  // return highlights;
+};
 
 // generateCancellationPolicy returns a lorem ipsum string
 const generateCancellationPolicy = () => faker.lorem.paragraphs();
@@ -158,12 +190,12 @@ const generateAmenities = () => {
 
   const generateSubAmenities = () => {
     const subAmenities = [];
-    let amenityCount = faker.random.number({ min: 6, max: amenities });
+    let amenityCount = faker.random.number({ min: 4, max: 8 });
 
     while (amenityCount > 0) {
       subAmenities.push({
         name: getRandomElement(amenities),
-        isAvailable: faker.ranomd.boolean()
+        isAvailable: faker.random.boolean()
       });
 
       amenityCount--;
@@ -217,21 +249,53 @@ const generateHealthAndSafety = () => {
   return healthAndSafetyPolicy;
 };
 
-
 const generateListing = () => {
-  return Object.assign(
-    {},
-    generateDescription(),
-    generateRoomStats(),
-    generateSleepingArrangements(),
-    // generateListingHighlights(),
-    generateCancellationPolicy(),
-    generateHouseRules(),
-    generateAmenities(),
-    generateHealthAndSafety()
-  );
+  const roomStats = generateRoomStats();
+
+  return new Listing({
+    minimumPricePerNight: roomStats.minimumPricePerNight,
+    roomCount: roomStats.roomCount,
+    roomType: roomStats.roomType,
+    bedCount: roomStats.bedCount,
+    bathroomCount: roomStats.bathroomCount,
+    sharedBathroomCount: roomStats.sharedBathroomCount,
+    maxGuestCount: roomStats.maxGuestCount,
+    desccription: generateDescription(),
+    sleepingArrangements: generateSleepingArrangements(),
+    listingHighlights: generateListingHighlights(),
+    cancellationPolicy: generateCancellationPolicy(),
+    houseRules: generateHouseRules(),
+    amenities: generateAmenities(),
+    healthAndSafety: generateHealthAndSafety()
+  });
 };
 
 // TODO: finish generateListingHighlights
 // TODO: fix generateListing
-// console.log(generateAmenities())
+// TODO: use environment variables for mongo connection
+// TODO: use mongoose to connect to database
+// TODO: create 100 airbnb listings
+// WARNING: be aware of mongo's auto-generated IDs not being just a number
+//  - maybe amend the schema to have a separate id?
+
+const seedDatabase = () => {
+  const seedCount = process.env.SEED_COUNT || 100;
+
+  const seedLoop = () => {
+    const listings = [];
+
+    for (let i = 1; i <= seedCount; i++) {
+      let listing = generateListing();
+
+      listings.push(listing);
+    }
+
+    return Listing.insertMany(listings);
+  };
+
+  seedLoop()
+    .then(() => console.log(`finished seeding database with ${seedCount} records!`))
+    .catch(err => console.log(`failed to seed database: ${err}`));
+};
+
+seedDatabase();
