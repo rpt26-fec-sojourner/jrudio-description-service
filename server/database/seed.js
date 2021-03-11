@@ -293,8 +293,8 @@ const seedDatabase = () => {
   };
 
   seedLoop()
-  .then(() => console.log(`finished seeding database with ${seedCount} records!`))
-  .catch(err => console.log(`failed to seed database: ${err}`));
+    .then(() => console.log(`finished seeding database with ${seedCount} records!`))
+    .catch(err => console.log(`failed to seed database: ${err}`));
 };
 
 db.then(() => seedDatabase(), err => console.log(`failed to connect to databse: ${err}`));

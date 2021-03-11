@@ -6,7 +6,8 @@ const port = process.env.MONGO_PORT || 27017;
 const database = 'description_service';
 let db = null;
 const options = {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 };
 
 if (username) {
