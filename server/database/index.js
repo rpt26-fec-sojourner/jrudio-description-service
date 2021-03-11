@@ -1,15 +1,18 @@
 const mongoose = require('mongoose');
 const username = process.env.MONGO_USER;
 const password = process.env.MONGO_PASSWORD;
-const host = process.env.MONGO_HOST || 'localhost';
+const host = process.env.MONGO_HOST || '127.0.0.1';
 const port = process.env.MONGO_PORT || 27017;
 const database = 'description_service';
 let db = null;
+const options = {
+  useNewUrlParser: true
+};
 
 if (username) {
-  db = mongoose.connect(`mongodb://${username}:${password}@${host}:${port}/${database}`, { useNewUrlParser: true });
+  db = mongoose.connect(`mongodb://${username}:${password}@${host}:${port}/${database}`, options);
 } else {
-  db = mongoose.connect(`mongodb://${host}:${port}/${database}`, { useNewUrlParser: true });
+  db = mongoose.connect(`mongodb://${host}:${port}/${database}`, options);
 }
 
 const Schema = mongoose.Schema;
@@ -74,6 +77,7 @@ const HealthAndSafetySchema = {
 };
 
 const ListingSchema = new Schema({
+  listingID: { type: Number, default: 1 }, // an id used by our api endpoints instead of using the default ObjectID on the _id field
   minimumPricePerNight: Number, // Weekends and holidays can make this fluctuate
   roomCount: Number,
   roomType: String,
@@ -91,4 +95,5 @@ const ListingSchema = new Schema({
 });
 
 module.exports.Listing = mongoose.model('Listing', ListingSchema);
+
 module.exports.db = db;

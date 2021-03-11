@@ -1,5 +1,4 @@
 const faker = require('faker');
-
 const { Listing, db } = require('../database');
 const { getRandomElement } = require('../helpers');
 
@@ -249,10 +248,15 @@ const generateHealthAndSafety = () => {
   return healthAndSafetyPolicy;
 };
 
-const generateListing = () => {
+const generateListing = (id) => {
+  if (!id) {
+    throw new Error('id is required to generate a listing');
+  }
+
   const roomStats = generateRoomStats();
 
   return new Listing({
+    listingID: id,
     minimumPricePerNight: roomStats.minimumPricePerNight,
     roomCount: roomStats.roomCount,
     roomType: roomStats.roomType,
@@ -270,11 +274,6 @@ const generateListing = () => {
   });
 };
 
-// TODO: finish generateListingHighlights
-// TODO: fix generateListing
-// TODO: use environment variables for mongo connection
-// TODO: use mongoose to connect to database
-// TODO: create 100 airbnb listings
 // WARNING: be aware of mongo's auto-generated IDs not being just a number
 //  - maybe amend the schema to have a separate id?
 
@@ -285,7 +284,7 @@ const seedDatabase = () => {
     const listings = [];
 
     for (let i = 1; i <= seedCount; i++) {
-      let listing = generateListing();
+      let listing = generateListing(i);
 
       listings.push(listing);
     }
@@ -294,8 +293,8 @@ const seedDatabase = () => {
   };
 
   seedLoop()
-    .then(() => console.log(`finished seeding database with ${seedCount} records!`))
-    .catch(err => console.log(`failed to seed database: ${err}`));
+  .then(() => console.log(`finished seeding database with ${seedCount} records!`))
+  .catch(err => console.log(`failed to seed database: ${err}`));
 };
 
-seedDatabase();
+db.then(() => seedDatabase(), err => console.log(`failed to connect to databse: ${err}`));
