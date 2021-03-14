@@ -10,7 +10,9 @@
   "scripts": {
     "lint-server": "npx eslint server",
     "start": "node server/index.js",
-    "seed-db": "node server/database/seed.js"
+    "seed-db": "node server/database/seed.js",
+    "front-dev": "webpack --mode developement --progress",
+    "serve": "webpack serve --progress --mode development"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
@@ -23,6 +25,12 @@
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
     "babel-preset-airbnb": "^5.0.0",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "css-loader": "^5.1.2",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.25.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
