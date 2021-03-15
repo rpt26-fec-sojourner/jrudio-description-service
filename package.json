@@ -10,8 +10,8 @@
   "scripts": {
     "lint-server": "npx eslint server",
     "start": "node server/index.js",
-    "seed-db": "node server/database/seed.js",
-    "test": "jest --coverage spec.js"
+    "seed-db": "SEED_DB=true node server/database/seed.js",
+    "test": "jest --coverage --detectOpenHandles --config jest.config.js spec.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
@@ -26,6 +26,7 @@
     "babel-preset-airbnb": "^5.0.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^26.6.3",
+    "mongodb-memory-server": "^6.9.6",
     "node-fetch": "^2.6.1"
   }
 }

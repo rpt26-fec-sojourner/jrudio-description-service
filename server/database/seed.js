@@ -297,4 +297,8 @@ const seedDatabase = () => {
     .catch(err => console.log(`failed to seed database: ${err}`));
 };
 
-db.then(() => seedDatabase(), err => console.log(`failed to connect to databse: ${err}`));
+if (process.env.SEED_DB) {
+  db.then(() => seedDatabase(), err => console.log(`failed to connect to databse: ${err}`));
+}
+
+module.exports.seedDatabase = seedDatabase;
