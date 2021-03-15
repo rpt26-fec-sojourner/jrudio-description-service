@@ -1,3 +1,11 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './styles/app.css';
 
-console.log('test from webpack');
+const App = () => {
+  return (
+    <p>my first component!</p>
+  );
+};
+
+ReactDOM.render(<App />, document.querySelector('#app'));
