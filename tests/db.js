@@ -5,9 +5,9 @@ const mongo = new MongoMemoryServer({
   instance: {
     port: 127017
   }
-})
+});
 
 module.exports = () => {
   return mongo.getPort()
-  .then(port => ({ port }));
+    .then(port => ({ port }));
 };
