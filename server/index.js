@@ -1,10 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 
 const { Listing } = require('./database');
 
 let port = process.env.APP_PORT || 7878;
 
 const app = express();
+
+app.use(cors());
 
 const newResponse = () => ({
   result: null,
