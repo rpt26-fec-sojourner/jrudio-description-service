@@ -1,5 +1,5 @@
 const faker = require('faker');
-const { Listing, db } = require('../database');
+const { Listing, db, disconnect } = require('../database');
 const { getRandomElement } = require('../helpers');
 
 const roomTypes = [
@@ -292,9 +292,12 @@ const seedDatabase = () => {
     return Listing.insertMany(listings);
   };
 
-  seedLoop()
+  return seedLoop()
     .then(() => console.log(`finished seeding database with ${seedCount} records!`))
     .catch(err => console.log(`failed to seed database: ${err}`));
 };
 
-db.then(() => seedDatabase(), err => console.log(`failed to connect to databse: ${err}`));
+db.then(() => {
+  seedDatabase()
+    .then(() => disconnect());
+}, err => console.log(`failed to connect to databse: ${err}`));

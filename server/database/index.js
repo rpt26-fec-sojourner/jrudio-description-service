@@ -98,3 +98,4 @@ const ListingSchema = new Schema({
 module.exports.Listing = mongoose.model('Listing', ListingSchema);
 
 module.exports.db = db;
+module.exports.disconnect = () => mongoose.disconnect();
