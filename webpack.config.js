@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -22,6 +23,9 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, 'client', 'public', 'index.html')
+    }),
+    new webpack.DefinePlugin({
+      APP_URL: JSON.stringify(process.env.APP_URL || 'http://localhost:7878')
     })
   ],
   module: {

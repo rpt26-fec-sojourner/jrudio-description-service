@@ -7,8 +7,15 @@
   "engines": {
     "node": ">=6.13.0"
   },
+  "eslintConfig": {
+    "browser": "true",
+    "node": "true"
+  },
+  "eslintIgnore": [
+    "client/dist/*"
+  ],
   "scripts": {
-    "lint-server": "npx eslint server",
+    "linter": "npx eslint .",
     "start": "node server/index.js",
     "seed-db": "node server/database/seed.js",
     "front-dev": "webpack --mode development --progress",
@@ -16,11 +23,15 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "@reduxjs/toolkit": "^1.5.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^5.4.0",
     "mongoose": "^5.11.18",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.0",
