@@ -264,7 +264,7 @@ const generateListing = (id) => {
     bathroomCount: roomStats.bathroomCount,
     sharedBathroomCount: roomStats.sharedBathroomCount,
     maxGuestCount: roomStats.maxGuestCount,
-    desccription: generateDescription(),
+    description: generateDescription(),
     sleepingArrangements: generateSleepingArrangements(),
     listingHighlights: generateListingHighlights(),
     cancellationPolicy: generateCancellationPolicy(),
