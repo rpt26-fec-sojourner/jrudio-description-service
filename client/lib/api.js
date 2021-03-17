@@ -22,6 +22,7 @@ export const getFullListing = (id = 1) => {
 
       return res.json();
     })
+    .then(res => res.result)
     .catch(err => {
       console.error(`could not fetch full listing: ${err}`);
     });

@@ -1,15 +1,6 @@
-// import { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
+import listingReducer from './listing';
 
-const initialState = {
-  listing: {}
-};
-
-// export default combineReducers();
-export default (state = initialState, action) => {
-  switch (action.type) {
-  case 'FETCHED_LISTING':
-    return { ...state, listing: action.listing };
-  default:
-    return state;
-  }
-};
+export default combineReducers({
+  listing: listingReducer
+});

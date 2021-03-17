@@ -4,20 +4,12 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import './styles/app.css';
-import { getFullListing } from './lib/api';
+import Description from './containers/description';
 
-getFullListing()
-  .then(listing => {
-    console.log(listing);
-  })
-  .catch(err => {
-    console.error(err);
-  });
+const App = (props) => {
+  // console.log(props);
 
-const App = () => {
-  return (
-    <p>my first component!</p>
-  );
+  return <Description />;
 };
 
 ReactDOM.render(
