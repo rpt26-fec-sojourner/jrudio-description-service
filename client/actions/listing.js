@@ -7,7 +7,7 @@ export const getListing = (id = 1) => {
         return dispatch({
           type: 'FULL_LISTING_LOADED',
           data: listing
-        })
+        });
       })
       .catch(err => {
         console.log(`failed to fetch getListing(): ${err}`);

@@ -22,7 +22,7 @@ class Description extends React.Component {
       innerText = this.renderDescription(description);
     }
 
-    console.log(this.props)
+    console.log(this.props);
 
     return (
       <div>

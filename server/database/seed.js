@@ -301,7 +301,7 @@ const seedDatabase = () => {
 if (process.env.SEED_DB) {
   db.then(() => {
     seedDatabase()
-      .then(() => mongoose.disconnect())
+      .then(() => mongoose.disconnect());
   }, err => console.log(`failed to connect to databse: ${err}`));
 }
 

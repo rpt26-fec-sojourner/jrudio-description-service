@@ -19,17 +19,17 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'FULL_LISTING_LOADED':
-      return {
-        ...state,
-        ...action.data
-      };
-    case 'FULL_LISTING_ERROR':
-      return {
-        ...state,
-        errorMessage: action.data
-      };
-    default:
-      return state;
+  case 'FULL_LISTING_LOADED':
+    return {
+      ...state,
+      ...action.data
+    };
+  case 'FULL_LISTING_ERROR':
+    return {
+      ...state,
+      errorMessage: action.data
+    };
+  default:
+    return state;
   }
 };
