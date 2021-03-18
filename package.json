@@ -19,7 +19,8 @@
     "start": "node server/index.js",
     "seed-db": "SEED_DB=true node server/database/seed.js",
     "test": "jest --coverage --detectOpenHandles --config jest.config.js spec.js",
-    "front-dev": "webpack --mode development --progress",
+    "build": "webpack --mode production --progress",
+
     "serve": "webpack serve --progress --mode development"
   },
   "dependencies": {
