@@ -8,10 +8,12 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "lint-server": "npx eslint server"
+    "lint-server": "npx eslint server",
+    "seed-db": "node server/database/seed.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "faker": "^5.4.0",
     "mongoose": "^5.11.18"
   },
   "devDependencies": {
