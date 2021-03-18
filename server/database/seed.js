@@ -1,4 +1,5 @@
 const faker = require('faker');
+const mongoose = require('mongoose');
 const { Listing, db, disconnect } = require('../database');
 const { getRandomElement } = require('../helpers');
 
@@ -297,7 +298,11 @@ const seedDatabase = () => {
     .catch(err => console.log(`failed to seed database: ${err}`));
 };
 
-db.then(() => {
-  seedDatabase()
-    .then(() => disconnect());
-}, err => console.log(`failed to connect to databse: ${err}`));
+if (process.env.SEED_DB) {
+  db.then(() => {
+    seedDatabase()
+      .then(() => mongoose.disconnect())
+  }, err => console.log(`failed to connect to databse: ${err}`));
+}
+
+module.exports.seedDatabase = seedDatabase;

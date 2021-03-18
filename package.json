@@ -9,10 +9,13 @@
   },
   "scripts": {
     "lint-server": "npx eslint server",
-    "seed-db": "node server/database/seed.js"
+    "start": "node server/index.js",
+    "seed-db": "SEED_DB=true node server/database/seed.js",
+    "test": "jest --coverage --detectOpenHandles --config jest.config.js spec.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "express": "^4.17.1",
     "faker": "^5.4.0",
     "mongoose": "^5.11.18"
   },
@@ -21,6 +24,9 @@
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
     "babel-preset-airbnb": "^5.0.0",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^26.6.3",
+    "mongodb-memory-server": "^6.9.6",
+    "node-fetch": "^2.6.1"
   }
 }
