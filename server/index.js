@@ -1,13 +1,17 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
 const { Listing } = require('./database');
 
 let port = process.env.APP_PORT || 7878;
 
 const app = express();
+const staticFilesPath = path.resolve(__dirname, '..', 'client', 'dist');
 
 app.use(cors());
+
+app.use(express.static(staticFilesPath));
 
 const newResponse = () => ({
   result: null,
