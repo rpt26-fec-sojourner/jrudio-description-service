@@ -7,26 +7,49 @@
   "engines": {
     "node": ">=6.13.0"
   },
+  "eslintConfig": {
+    "browser": "true",
+    "node": "true"
+  },
+  "eslintIgnore": [
+    "client/dist/*"
+  ],
   "scripts": {
-    "lint-server": "npx eslint server",
+    "linter": "npx eslint .",
     "start": "node server/index.js",
     "seed-db": "SEED_DB=true node server/database/seed.js",
-    "test": "jest --coverage --detectOpenHandles --config jest.config.js spec.js"
+    "test": "jest --coverage --detectOpenHandles --config jest.config.js spec.js",
+    "front-dev": "webpack --mode development --progress",
+    "serve": "webpack serve --progress --mode development"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "@reduxjs/toolkit": "^1.5.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^5.4.0",
-    "mongoose": "^5.11.18"
+    "mongoose": "^5.11.18",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.0",
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-react": "^7.12.13",
+    "babel-loader": "^8.2.2",
     "babel-preset-airbnb": "^5.0.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^26.6.3",
     "mongodb-memory-server": "^6.9.6",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "css-loader": "^5.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.25.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
