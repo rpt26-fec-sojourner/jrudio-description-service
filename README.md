@@ -28,15 +28,15 @@
   - `MONGO_HOST`
   - `MONGO_PORT`
 
-To start
+- To start
 
-> npm start
+  > npm start
 
-or if you want to change the app port:
+ - or if you want to change the app port:
 
-> APP_PORT=7879 npm run start
+    > APP_PORT=7879 npm run start
 
 ## Requirements
 
-- Node 6.13.0
+- Node 6.13.0 or higher
 - MongoDB
