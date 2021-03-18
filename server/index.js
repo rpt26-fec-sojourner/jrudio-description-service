@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 const { Listing } = require('./database');
 
@@ -6,12 +7,14 @@ let port = process.env.APP_PORT || 7878;
 
 const app = express();
 
+app.use(cors());
+
 const newResponse = () => ({
   result: null,
   error: ''
 });
 
-app.get('/listing/:id', (req, res) => {
+app.get('/api/listing/:id', (req, res) => {
   const { id } = req.params;
 
   const clientResponse = newResponse();
@@ -36,7 +39,7 @@ app.get('/listing/:id', (req, res) => {
     });
 });
 
-app.get('/price/:id', (req, res) => {
+app.get('/api/price/:id', (req, res) => {
   const { id } = req.params;
 
   const clientResponse = newResponse();
@@ -61,7 +64,7 @@ app.get('/price/:id', (req, res) => {
     });
 });
 
-app.get('/stats/:id', (req, res) => {
+app.get('/api/stats/:id', (req, res) => {
   const { id } = req.params;
 
   const filters = {
@@ -95,7 +98,7 @@ app.get('/stats/:id', (req, res) => {
     });
 });
 
-app.get('/highlights/:id', (req, res) => {
+app.get('/api/highlights/:id', (req, res) => {
   const { id } = req.params;
 
   const filters = {
@@ -125,7 +128,7 @@ app.get('/highlights/:id', (req, res) => {
     });
 });
 
-app.get('/amenities/:id', (req, res) => {
+app.get('/api/amenities/:id', (req, res) => {
   const { id } = req.params;
 
   const filters = {
