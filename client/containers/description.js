@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { getListing } from '../actions/listing';
 import Description from '../components/description';
 
 const mapStateToProps = (state) => {
@@ -17,8 +16,4 @@ const mapStateToProps = (state) => {
   return { description };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  getRoomListing: (id) => dispatch(getListing(id))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Description);
+export default connect(mapStateToProps, null)(Description);
