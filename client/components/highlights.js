@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ListingHighlights (props) {
+const ListingHighlights = (props) => {
   const highlights = props.highlights ? props.highlights.map((highlight, i) => {
     return (<p key={i}>{highlight.title} - {highlight.subtitle}</p>);
   }) : null;
@@ -10,6 +10,6 @@ function ListingHighlights (props) {
       {highlights}
     </div>
   );
-}
+};
 
 export default ListingHighlights;

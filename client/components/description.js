@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-function Description (props) {
+const Description = (props) => {
   const renderDescription = (description) => {
     return <p>{description}</p>;
   };
@@ -20,6 +20,6 @@ function Description (props) {
       {innerText}
     </div>
   );
-}
+};
 
 export default Description;
