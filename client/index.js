@@ -13,6 +13,7 @@ import { getListingID } from './helpers';
 
 import Description from './containers/description';
 import ListingHighlights from './containers/highlights';
+import SleepingArrangements from './containers/sleepingArrangements';
 
 const App = (props) => {
   useEffect(() => {
@@ -31,6 +32,7 @@ const App = (props) => {
     <Router>
       <ListingHighlights />
       <Description />
+      <SleepingArrangements />
     </Router>
   );
 };
