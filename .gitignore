@@ -24,3 +24,5 @@ coverage
 build/
 dist/
 
+server/environment_vars
+client/dist/*
