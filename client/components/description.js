@@ -1,35 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import {
+  getListingID
+} from '../helpers';
 
-class Description extends React.Component {
-  constructor (props) {
-    super(props);
-  }
+function Description (props) {
+  useEffect(() => {
+    const id = getListingID();
 
-  componentDidMount () {
-    this.props.getRoomListing(1);
-  }
+    if (!id) {
+      console.error('could not read the id from url');
 
-  renderDescription (description) {
-    return <p>{description}</p>;
-  }
-
-  render () {
-    const { description } = this.props;
-
-    let innerText = 'Description not available';
-
-    if (description) {
-      innerText = this.renderDescription(description);
+      return;
     }
 
-    console.log(this.props);
+    props.getRoomListing(id);
+  });
 
-    return (
-      <div>
-        {innerText}
-      </div>
-    );
+  const renderDescription = (description) => {
+    return <p>{description}</p>;
+  };
+
+  const { description } = props;
+
+  let innerText = 'Description not available';
+
+  if (description) {
+    innerText = renderDescription(description);
   }
+
+  console.log(props);
+
+  return (
+    <div>
+      {innerText}
+    </div>
+  );
 }
 
 export default Description;
