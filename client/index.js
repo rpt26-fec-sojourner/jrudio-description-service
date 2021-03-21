@@ -13,6 +13,7 @@ import { getListingID } from './helpers';
 
 import Description from './containers/description';
 import ListingHighlights from './containers/highlights';
+import ListingStats from './containers/listingStats';
 import SleepingArrangements from './containers/sleepingArrangements';
 import Amenities from './containers/amenities';
 
@@ -31,6 +32,7 @@ const App = (props) => {
 
   return (
     <Router>
+      <ListingStats />
       <ListingHighlights />
       <Description />
       <SleepingArrangements />
