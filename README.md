@@ -5,30 +5,33 @@
 ## Related Projects
 
   - https://github.com/rpt26-fec-sojourner/jrudio-description-proxy
+  - https://github.com/rpt26-fec-sojourner/chloe-fec-title-service
+  - https://github.com/rpt26-fec-sojourner/carolyn-photos-service
+  - https://github.com/rpt26-fec-sojourner/melanie-reviews-service
 
 ## Table of Contents
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
+1. [Notes](#notes)
 
 ## Usage
 
-- Install dependencies
+1. Install dependencies
 
   > npm i
 
-- Make sure MongoDB is running
+2. Build the client with
 
-- npm start to run the app server
+  > npm run build
 
-- By default the app listens to port `7878`, but you can change it via environment variable `APP_PORT`
+3. Make sure MongoDB is running
 
-- By default the app tries to connect to mongo on `http://localhost:27017` but you can change the port if need be via environment variables as well
+4. Seed the database if you haven't
 
-  - `MONGO_HOST`
-  - `MONGO_PORT`
+  > npm run seed-db
 
-- To start
+5. Run the app server
 
   > npm start
 
@@ -36,7 +39,16 @@
 
     > APP_PORT=7879 npm run start
 
-## Requirements
+## Notes:
 
-- Node 6.13.0 or higher
+- By default the app listens to port `7878`, but you can change it via environment variable `APP_PORT`
+
+- By default the app tries to connect to MongoDB on `http://localhost:27017` but you can change the port if need be via environment variables as well
+
+  - `MONGO_HOST`
+  - `MONGO_PORT`
+
+## Notes
+
+- notes 6.13.0 or higher
 - MongoDB
