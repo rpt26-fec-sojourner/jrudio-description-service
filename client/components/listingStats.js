@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/listingStats.module.css';
 
 const ListingStats = (props) => {
   const {
@@ -12,8 +13,8 @@ const ListingStats = (props) => {
 
   return (
     <div>
-      <h3>{title || 'An out of this world stow away'} hosted by {hostName || 'TARS'} <i>Insert host picture here</i></h3>
-      <sub>{maxGuestCount} guests - {bedroomCount} bedroom - {bedCount} bed(s) - {bathroomCount} baths</sub>
+      <div className={styles.title}>{title || 'An out of this world stow away'} hosted by {hostName || 'TARS'} <i>Insert host picture here</i></div>
+      <div>{maxGuestCount} guests - {bedroomCount} bedroom - {bedCount} bed(s) - {bathroomCount} baths</div>
     </div>
   );
 };

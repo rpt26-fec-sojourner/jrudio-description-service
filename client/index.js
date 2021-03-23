@@ -6,7 +6,7 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 import store from './store';
-import './styles/app.css';
+import styles from './styles/app.module.css';
 
 import { getListing } from './actions/listing';
 import { getListingID } from './helpers';
@@ -32,11 +32,13 @@ const App = (props) => {
 
   return (
     <Router>
-      <ListingStats />
-      <ListingHighlights />
-      <Description />
-      <SleepingArrangements />
-      <Amenities />
+      <div className={styles.text}>
+        <ListingStats />
+        <ListingHighlights />
+        <Description />
+        <SleepingArrangements />
+        <Amenities />
+      </div>
     </Router>
   );
 };
