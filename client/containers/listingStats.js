@@ -1,13 +1,16 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import {
+  getListingTitle
+} from '../actions/listingStats';
 import ListingStats from '../components/listingStats';
 
 const mapStateToProps = (state) => {
   const { listing } = state;
 
   return {
-    title: '',
+    title: listing.title,
     hostName: '',
     maxGuestCount: listing.maxGuestCount,
     bedroomCount: listing.bedroomCount,
@@ -16,4 +19,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(ListingStats);
+const mapDispatchToProps = (dispatch) => ({
+  getListingTitle: (id) => dispatch(getListingTitle(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListingStats);

@@ -6,7 +6,7 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 import store from './store';
-import './styles/app.css';
+import styles from './styles/app.module.css';
 
 import { getListing } from './actions/listing';
 import { getListingID } from './helpers';
@@ -32,11 +32,13 @@ const App = (props) => {
 
   return (
     <Router>
-      <ListingStats />
-      <ListingHighlights />
-      <Description />
-      <SleepingArrangements />
-      <Amenities />
+      <div className={styles.text}>
+        <ListingStats />
+        <ListingHighlights />
+        <Description />
+        <SleepingArrangements />
+        <Amenities />
+      </div>
     </Router>
   );
 };
@@ -50,4 +52,4 @@ const AppContainer = connect(null, mapDispatchToProps)(App);
 ReactDOM.render(
   <Provider store={store}>
     <AppContainer />
-  </Provider>, document.querySelector('#app-justin-description'));
+  </Provider>, document.querySelector('#description'));
