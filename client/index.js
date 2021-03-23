@@ -50,4 +50,4 @@ const AppContainer = connect(null, mapDispatchToProps)(App);
 ReactDOM.render(
   <Provider store={store}>
     <AppContainer />
-  </Provider>, document.querySelector('#app-justin-description'));
+  </Provider>, document.querySelector('#description'));
