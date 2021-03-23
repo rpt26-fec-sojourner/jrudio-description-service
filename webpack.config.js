@@ -24,9 +24,9 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, 'client', 'public', 'index.html')
     }),
-    new webpack.DefinePlugin({
-      APP_URL: JSON.stringify(process.env.APP_URL || 'http://localhost:7878')
-    })
+    // new webpack.DefinePlugin({
+    //   APP_URL: JSON.stringify(process.env.APP_URL || 'http://localhost:7878')
+    // })
   ],
   module: {
     rules: [
