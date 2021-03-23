@@ -14,6 +14,7 @@ export const initialState = {
   sleepingArrangements: [],
   amenities: [],
   healthAndSafety: {},
+  title: '',
   errorMessage: ''
 };
 
@@ -23,6 +24,11 @@ export default (state = initialState, action) => {
     return {
       ...state,
       ...action.data
+    };
+  case 'TITLE_LOADED':
+    return {
+      ...state,
+      title: action.data
     };
   case 'FULL_LISTING_ERROR':
     return {

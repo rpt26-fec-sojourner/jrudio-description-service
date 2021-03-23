@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../styles/listingStats.module.css';
+
+import {
+  getListingID
+} from '../helpers';
 
 const ListingStats = (props) => {
   const {
@@ -10,6 +14,18 @@ const ListingStats = (props) => {
     bedCount,
     bathroomCount
   } = props;
+
+  useEffect(() => {
+    const id = getListingID();
+
+    if (!id) {
+      console.error('could not read the id from url');
+
+      return;
+    }
+
+    props.getListingTitle(id);
+  });
 
   return (
     <div>
