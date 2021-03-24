@@ -11,11 +11,13 @@ import styles from './styles/app.module.css';
 import { getListing } from './actions/listing';
 import { getListingID } from './helpers';
 
+/* Components */
 import Description from './containers/description';
 import ListingHighlights from './containers/highlights';
 import ListingStats from './containers/listingStats';
 import SleepingArrangements from './containers/sleepingArrangements';
 import Amenities from './containers/amenities';
+import Border from './components/border';
 
 const App = (props) => {
   useEffect(() => {
@@ -32,9 +34,10 @@ const App = (props) => {
 
   return (
     <Router>
-      <div className={styles.text}>
+      <div className={styles.wrapper}>
         <ListingStats />
         <ListingHighlights />
+        <Border />
         <Description />
         <SleepingArrangements />
         <Amenities />

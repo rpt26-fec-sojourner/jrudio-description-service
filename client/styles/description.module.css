@@ -1,0 +1,14 @@
+.description {
+  padding-top: 32px;
+  padding-bottom: 48px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.wrapper {
+  /* display: block; */
+  position: relative;
+  width: 58.33%;
+  margin-right: 0%;
+}
