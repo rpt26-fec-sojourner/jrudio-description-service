@@ -11,7 +11,45 @@ const staticFilesPath = path.resolve(__dirname, '..', 'client', 'dist');
 
 app.use(cors());
 
-app.use(express.static(staticFilesPath));
+app.get('/', (req, res) => {
+  res.redirect('/rooms/1');
+
+  res.end();
+});
+
+app.get('/index.js', (req, res) => {
+  res.sendFile(path.join(staticFilesPath, 'index.js'));
+});
+
+// handle bundle.js as well!
+app.get('/bundle.js', (req, res) => {
+  res.redirect('/index.js');
+});
+
+app.get('/rooms/:id', (req, res, next) => {
+  // catch invalid id
+  const id = req.params.id;
+  const indexPath = path.join(staticFilesPath, 'index.html');
+  const validIDRange = 100;
+
+  if (!id) {
+    res.sendStatus(404);
+
+    return;
+  }
+
+  const idToNumber = Number(id);
+  const isInvalidID = typeof idToNumber === NaN || idToNumber <= 0 || id > 100;
+
+  if (isInvalidID) {
+    console.log('invalid id requested');
+
+    res.sendStatus(404);
+    return;
+  }
+
+  res.sendFile(indexPath);
+});
 
 const newResponse = () => ({
   result: null,
