@@ -1,0 +1,16 @@
+version: "3.1"
+services:
+  description:
+    build: .
+    ports:
+      - "7878:7878"
+    environment:
+      - PRODUCTION=true
+      - MONGO_HOST=db
+  db:
+    image: mongo
+    restart: always
+    volumes:
+      - /data/db:/data/db
+    ports:
+      - "27017:27017"
