@@ -22,11 +22,8 @@ services:
       - PRODUCTION=true
       - MONGO_HOST=db
     labels:
-      caddy: "fec.justinrudio.com"
-      # caddy.email: justinjrudio@gmail.com
+      caddy: "fec-description.justinrudio.com"
       caddy.reverse_proxy: "{{ upstreams 7878 }}"
-      # caddy.tls: "justinjrudio@gmail.com"
-      # caddy.tls.ca: "https://acme-staging-v02.api.letsencrypt.org/directory"
   db:
     image: mongo
     restart: always
