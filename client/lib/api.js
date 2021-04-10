@@ -6,7 +6,8 @@ export const getAPIUrl = (endpoint = '', appendAPI = true) => {
     protocol
   } = window.location;
 
-  let url = `${protocol}//${host}`;
+  // let url = `${protocol}//${host}`;
+  let url = `//fec-description.justinrudio.com`;
 
   if (appendAPI) {
     url += '/api';
@@ -43,7 +44,8 @@ export const getListingTitle = (id = 1) => {
     throw new Error('id is required');
   }
 
-  let endpoint = getAPIUrl(`/title/${id}`).replace('/api', '');
+  // let endpoint = getAPIUrl(`/title/${id}`).replace('/api', '');
+  let endpoint = `http://13.59.196.208:5500/title/${id}`;
 
   return fetch(endpoint)
     .then(res => {

@@ -15,6 +15,7 @@ export const initialState = {
   amenities: [],
   healthAndSafety: {},
   title: '',
+  hostName: '',
   errorMessage: ''
 };
 
