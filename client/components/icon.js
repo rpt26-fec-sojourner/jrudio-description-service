@@ -30,6 +30,18 @@ const Icon = (props) => {
       );
 
       break;
+    case 'bed':
+      icon = (
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"><path d="M28 4a2 2 0 0 1 1.995 1.85L30 6v7.839l1.846 5.537a3 3 0 0 1 .115.468l.03.24.009.24V30h-2v-2H2v2H0v-9.675a3 3 0 0 1 .087-.717l.067-.232L2 13.836V6a2 2 0 0 1 1.697-1.977l.154-.018L4 4zm2 18H2v4h28zm-1.388-6H3.387l-1.333 4h27.891zM28 6H4v8h2v-4a2 2 0 0 1 1.85-1.995L8 8h16a2 2 0 0 1 1.995 1.85L26 10v4h2zm-13 4H8v4h7zm9 0h-7v4h7z"></path></svg>
+      );
+
+      break;
+    case 'sofa':
+      icon = (
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"><path d="M26 4a2 2 0 0 1 1.995 1.85L28 6v2h1a3 3 0 0 1 2.995 2.824L32 11v19H0V11a3 3 0 0 1 2.824-2.995L3 8h1V6a2 2 0 0 1 1.697-1.977l.154-.018L6 4zm4 18H2v6h28zm-2.868-6H4.868L2.2 20h27.599zM29 10h-1v3.697l2 3V11a1 1 0 0 0-.883-.993zM4 10H3a1 1 0 0 0-.993.883L2 11v5.696l2-3zm22-4H6v8h4v-4a2 2 0 0 1 1.85-1.995L12 8h8a2 2 0 0 1 1.995 1.85L22 10v4h4zm-6 4h-8v4h8z"></path></svg>
+      );
+
+      break;
   }
 
   return icon;
