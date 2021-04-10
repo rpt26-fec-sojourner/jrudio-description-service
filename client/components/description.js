@@ -13,8 +13,6 @@ const Description = (props) => {
     innerText = renderDescription(description);
   }
 
-  console.log(props);
-
   return (
     <div>
       {innerText}
