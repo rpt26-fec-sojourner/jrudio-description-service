@@ -32,9 +32,13 @@ const App = (props) => {
     props.getRoomListing(id);
   });
 
+  const appStyles = []
+  appStyles.push(styles['airbnb-font']);
+  appStyles.push(styles.wrapper);
+
   return (
     <Router>
-      <div className={styles.wrapper}>
+      <div className={appStyles.join(' ') }>
         <ListingStats />
         <Border />
         <ListingHighlights />

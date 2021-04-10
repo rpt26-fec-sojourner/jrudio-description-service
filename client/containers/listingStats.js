@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
     title: listing.title,
     hostName: '',
     maxGuestCount: listing.maxGuestCount,
-    bedroomCount: listing.bedroomCount,
+    bedroomCount: listing.roomCount,
     bedCount: listing.bedCount,
     bathroomCount: listing.bathroomCount
   };
