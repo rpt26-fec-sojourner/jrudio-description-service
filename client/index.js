@@ -36,10 +36,13 @@ const App = (props) => {
     <Router>
       <div className={styles.wrapper}>
         <ListingStats />
+        <Border />
         <ListingHighlights />
         <Border />
         <Description />
+        <Border />
         <SleepingArrangements />
+        <Border />
         <Amenities />
       </div>
     </Router>
