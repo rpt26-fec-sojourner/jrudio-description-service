@@ -28,6 +28,11 @@
   }
 }
 
+/* .wrapper {
+  margin-left: auto;
+  margin-right: auto;
+} */
+
 .text-color {
   color: #222222;
   line-height: 20px;
