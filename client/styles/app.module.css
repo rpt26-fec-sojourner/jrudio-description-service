@@ -9,7 +9,7 @@
 }
 
 /* TODO: create a class name for this anchor tag! */
-a {
+a.button {
   color: rgb(34, 34, 34);
   text-decoration: underline;
   border-radius: 4px;
