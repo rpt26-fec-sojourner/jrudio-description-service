@@ -5,15 +5,8 @@
 
 p {
   color: #222222;
-  font-size: 16px;
+  /* font-size: 16px;
   font-weight: 400;
-  line-height: 24px;
-}
-
-a {
-  color: rgb(34, 34, 34);
-}
-
-a:active {
-  color:rgb(113, 113, 113);
+  line-height: 24px; */
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
 }
