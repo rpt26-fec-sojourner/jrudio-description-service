@@ -1,6 +1,31 @@
-.wrapper {
-  padding-left: 80px;
-  padding-right: 80px;
+@media (min-width: 375px) {
+  .wrapper {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 744px) {
+  .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1128px) {
+  .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+    max-width: 1280px;
+  }
 }
 
 .text-color {
