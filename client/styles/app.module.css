@@ -8,6 +8,7 @@
   line-height: 20px;
 }
 
+/* TODO: create a class name for this anchor tag! */
 a {
   color: rgb(34, 34, 34);
   text-decoration: underline;
@@ -18,4 +19,26 @@ a {
 .airbnb-font {
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   font-weight: 400 !important;
+}
+
+.sectionWrapper {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.sectionTitle {
+  font-size: 1em;
+  margin: 0px;
+  padding: 0px;
+  font-weight: inherit;
+}
+
+.sectionTitleWrapper {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+.sectionSubWrapper {
+  padding-bottom: 24px;
 }
