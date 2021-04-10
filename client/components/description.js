@@ -15,7 +15,7 @@ const Description = (props) => {
       <span className={styles.text}>
         {description}
 
-        <a href="?readMore=false" onClick={handleReadMore}>read more</a>
+        <a className={appStyles.button} href="?readMore=false" onClick={handleReadMore}>read more</a>
       </span>
     );
   };
@@ -24,7 +24,7 @@ const Description = (props) => {
     event.preventDefault();
   };
 
-  const renderContactButton = () => (<a href="?ayy=lmao" onClick={handleContactButton}>Contact host</a>);
+  const renderContactButton = () => (<a href="?ayy=lmao" className={appStyles.button} onClick={handleContactButton}>Contact host</a>);
 
   const { description } = props;
 

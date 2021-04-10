@@ -108,7 +108,7 @@ const Amenities = (props) => {
       </div>
 
       <div className={styles.showAllWrapper}>
-        <a href="?showMore=1" onClick={handleShowAll}>show all {amenityCount} amenities</a>
+        <a className={combineStyles(appStyles.button, styles.showAllButton)} href="?showMore=1" onClick={handleShowAll}>show all {amenityCount} amenities</a>
       </div>
     </div>
   );
