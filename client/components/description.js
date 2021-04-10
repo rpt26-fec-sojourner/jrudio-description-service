@@ -11,10 +11,13 @@ const Description = (props) => {
   };
 
   const renderDescription = (description) => {
-    return (<span>
-      {description}
-      <a href="?readMore=false" onClick={handleReadMore}>read more</a>
-    </span>);
+    return (
+      <span className={styles.text}>
+        {description}
+
+        <a href="?readMore=false" onClick={handleReadMore}>read more</a>
+      </span>
+    );
   };
 
   const handleContactButton = (event) => {
@@ -32,7 +35,7 @@ const Description = (props) => {
   }
 
   return (
-    <div className={[appStyles, styles.wrapper, styles.description].join(' ')}>
+    <div className={[appStyles.a, styles.wrapper, styles.description].join(' ')}>
       {innerText}
 
       <div className={styles.contact}>
