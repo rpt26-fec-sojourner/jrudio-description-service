@@ -1,0 +1,44 @@
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 4px;
+  line-height: 20px;
+}
+
+.subtitle {
+  color: rgb(113, 113, 113);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.wrapper {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.subWrapper {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.subWrapper:last-child {
+  margin-bottom: 0px;
+}
+
+.textWrapper {
+  margin-left: 16px;
+}
+
+.icon {
+  flex-shrink: 0;
+  min-width: 24px;
+}
+
+svg {
+  display: block;
+  height: 24px;
+  width: 24px;
+  fill: currentColor;
+}

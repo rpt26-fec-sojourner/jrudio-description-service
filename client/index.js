@@ -11,11 +11,13 @@ import styles from './styles/app.module.css';
 import { getListing } from './actions/listing';
 import { getListingID } from './helpers';
 
+/* Components */
 import Description from './containers/description';
 import ListingHighlights from './containers/highlights';
 import ListingStats from './containers/listingStats';
 import SleepingArrangements from './containers/sleepingArrangements';
 import Amenities from './containers/amenities';
+import Border from './components/border';
 
 const App = (props) => {
   useEffect(() => {
@@ -30,13 +32,21 @@ const App = (props) => {
     props.getRoomListing(id);
   });
 
+  const appStyles = []
+  appStyles.push(styles['airbnb-font']);
+  appStyles.push(styles.wrapper);
+
   return (
     <Router>
-      <div className={styles.text}>
+      <div className={appStyles.join(' ') }>
         <ListingStats />
+        <Border />
         <ListingHighlights />
+        <Border />
         <Description />
+        <Border />
         <SleepingArrangements />
+        <Border />
         <Amenities />
       </div>
     </Router>

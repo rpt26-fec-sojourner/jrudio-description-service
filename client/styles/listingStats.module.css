@@ -1,5 +1,18 @@
 .title {
-  font-size: 22px;
+  color: rgb(34, 34, 34) !important;
+  font-size: 22px; /* desktop screens */
+  /* font-size: 16px; /* for smaller screens */
   font-weight: 600;
   line-height: 26px;
+  margin-bottom: 8px;
+}
+
+.stats {
+  font-size: 16px; /* large screens */
+  line-height: 20px;
+}
+
+.wrapper {
+  padding-top: 48px;
+  padding-bottom: 24px;
 }

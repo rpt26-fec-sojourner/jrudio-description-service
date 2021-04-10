@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  caddy:
+    image: lucaslorentz/caddy-docker-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    labels:
+      caddy.email: justinjrudio@gmail.com
+    networks:
+      - caddy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/ubuntu/caddy:/data
+  description:
+    build: .
+    ports:
+      - "7878:7878"
+    networks:
+      - caddy
+    environment:
+      - PRODUCTION=true
+      - MONGO_HOST=db
+    labels:
+      caddy: "fec-description.justinrudio.com"
+      caddy.reverse_proxy: "{{ upstreams 7878 }}"
+  db:
+    image: mongo
+    restart: always
+    networks:
+      - caddy
+    volumes:
+      - /data/db:/data/db
+    ports:
+      - "27017"
+networks:
+  caddy:
+    driver: overlay

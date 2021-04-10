@@ -1,0 +1,20 @@
+.wrapper {
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+.contact {
+  margin-top: 32px;
+}
+
+span.text {
+  line-height: 24px;
+  font-size: 16px;
+  word-break: break-word;
+}
+
+/* @media (min-width: 744px) {
+  .wrapper {
+      display: block !important;
+  }
+} */

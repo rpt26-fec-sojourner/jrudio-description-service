@@ -1,9 +1,30 @@
 import React, { useEffect } from 'react';
+import appStyles from '../styles/app.module.css';
+import styles from '../styles/description.module.css';
+
+
 
 const Description = (props) => {
-  const renderDescription = (description) => {
-    return <p>{description}</p>;
+  const handleReadMore = (event) => {
+    console.log(event);
+    event.preventDefault();
   };
+
+  const renderDescription = (description) => {
+    return (
+      <span className={styles.text}>
+        {description}
+
+        <a className={appStyles.button} href="?readMore=false" onClick={handleReadMore}>read more</a>
+      </span>
+    );
+  };
+
+  const handleContactButton = (event) => {
+    event.preventDefault();
+  };
+
+  const renderContactButton = () => (<a href="?ayy=lmao" className={appStyles.button} onClick={handleContactButton}>Contact host</a>);
 
   const { description } = props;
 
@@ -14,8 +35,12 @@ const Description = (props) => {
   }
 
   return (
-    <div>
+    <div className={[appStyles.a, styles.wrapper, styles.description].join(' ')}>
       {innerText}
+
+      <div className={styles.contact}>
+        {renderContactButton()}
+      </div>
     </div>
   );
 };

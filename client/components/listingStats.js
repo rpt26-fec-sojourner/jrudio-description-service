@@ -1,9 +1,21 @@
 import React, { useEffect } from 'react';
 import styles from '../styles/listingStats.module.css';
+import appStyles from '../styles/app.module.css';
 
 import {
   getListingID
 } from '../helpers';
+
+const listingStyles = (() => {
+  const subtitle = [];
+  subtitle.push(appStyles['text-color']);
+  subtitle.push(styles.stats);
+
+  return {
+    subtitle: subtitle.join(' ')
+  }
+})();
+
 
 const ListingStats = (props) => {
   const {
@@ -28,9 +40,9 @@ const ListingStats = (props) => {
   });
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className={styles.title}>{title || 'An out of this world stow away'} hosted by {hostName || 'TARS'} <i>Insert host picture here</i></div>
-      <div>{maxGuestCount} guests - {bedroomCount} bedroom - {bedCount} bed(s) - {bathroomCount} baths</div>
+      <div className={listingStyles.subtitle}>{maxGuestCount} guests · {bedroomCount} bedroom{bedroomCount > 1 && 's'} · {bedCount} bed{bedCount > 1 && 's'} · {bathroomCount} bath{bathroomCount > 1 && 's'}</div>
     </div>
   );
 };
