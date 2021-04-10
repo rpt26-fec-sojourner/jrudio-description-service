@@ -18,3 +18,17 @@ export const getListingID = () => {
 
   return id;
 };
+
+export const getHighlightType = (name = '') => {
+  name = name.toLowerCase();
+
+  if (name.indexOf('enhanced') > -1 || name.indexOf('clean') > -1) {
+    return 'enhanced';
+  } else if(name.indexOf('home') > -1) {
+    return 'home';
+  } else if (name.indexOf('check-in') > -1) {
+    return 'check-in';
+  }
+
+  return 'home';
+};
