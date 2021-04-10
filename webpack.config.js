@@ -22,7 +22,9 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: path.resolve(__dirname, 'client', 'public', 'index.html')
+      template: path.resolve(__dirname, 'client', 'public', 'index.html'),
+      inject: 'body',
+      publicPath: '/'
     }),
     // new webpack.DefinePlugin({
     //   APP_URL: JSON.stringify(process.env.APP_URL || 'http://localhost:7878')
