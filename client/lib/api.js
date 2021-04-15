@@ -1,5 +1,13 @@
 import { fetch } from 'whatwg-fetch';
 
+const isHttps = () => {
+  const {
+    protocol
+  } = window.location;
+
+  return protocol === 'https:';
+};
+
 export const getAPIUrl = (endpoint = '', appendAPI = true) => {
   const {
     host,
@@ -44,8 +52,11 @@ export const getListingTitle = (id = 1) => {
     throw new Error('id is required');
   }
 
-  // let endpoint = getAPIUrl(`/title/${id}`).replace('/api', '');
   let endpoint = `http://13.59.196.208:5500/title/${id}`;
+
+  if (isHttps()) {
+     endpoint = getAPIUrl(`/title/${id}`).replace('/api', '');
+  }
 
   return fetch(endpoint)
     .then(res => {
