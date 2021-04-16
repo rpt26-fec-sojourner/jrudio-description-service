@@ -38,7 +38,7 @@ export default (state = initialState, action) => {
     };
   case 'HOST_INFO_LOADED':
     let {
-      avatarURL,
+      // avatarURL,
       hostName
     } = action.data;
 

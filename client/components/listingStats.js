@@ -45,11 +45,11 @@ const ListingStats = (props) => {
       <div className={styles.title}>
         {title || 'An out of this world stow away'} hosted by {hostName || 'TARS'}
 
-        <div className={styles.avatarWrapper}>
+        {/* <div className={styles.avatarWrapper}>
           <div className={styles.avatarWrapper2}>
-            <img className={styles.avatar}>
+            <img className={styles.avatar}></img>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className={listingStyles.subtitle}>{maxGuestCount} guests · {bedroomCount} bedroom{bedroomCount > 1 && 's'} · {bedCount} bed{bedCount > 1 && 's'} · {bathroomCount} bath{bathroomCount > 1 && 's'}</div>
     </div>
