@@ -36,6 +36,18 @@ export default (state = initialState, action) => {
       ...state,
       errorMessage: action.data
     };
+  case 'HOST_INFO_LOADED':
+    let {
+      avatarURL,
+      hostName
+    } = action.data;
+
+
+    return {
+      ...state,
+      hostName,
+      // avatarURL
+    }
   default:
     return state;
   }

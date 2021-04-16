@@ -1,4 +1,7 @@
-import { getListingTitle as getTitle } from '../lib/api';
+import {
+  getListingTitle as getTitle,
+  getHostInfo as getHost
+} from '../lib/api';
 
 export const getListingTitle = (id = 1) => {
   return dispatch => {
@@ -14,6 +17,21 @@ export const getListingTitle = (id = 1) => {
 
         return dispatch({
           type: 'TITLE_ERROR',
+          data: err
+        });
+      });
+  };
+};
+
+export const getHostInfo = (id = 1) => {
+  return dispatch => {
+    return getHost(id)
+      .then(info => dispatch({ type: 'HOST_INFO_LOADED', data: info }))
+      .catch(err => {
+        console.error(err);
+
+        return dispatch({
+          type: 'HOST_INFO_ERROR',
           data: err
         });
       });

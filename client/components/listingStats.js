@@ -37,6 +37,7 @@ const ListingStats = (props) => {
     }
 
     props.getListingTitle(id);
+    props.getHostInfo(id);
   });
 
   return (

@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import {
-  getListingTitle
+  getListingTitle,
+  getHostInfo
 } from '../actions/listingStats';
 import ListingStats from '../components/listingStats';
 
@@ -20,7 +21,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  getListingTitle: (id) => dispatch(getListingTitle(id))
+  getListingTitle: (id) => dispatch(getListingTitle(id)),
+  getHostInfo: (id) => dispatch(getHostInfo(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingStats);
