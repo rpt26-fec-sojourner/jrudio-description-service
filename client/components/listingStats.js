@@ -42,7 +42,15 @@ const ListingStats = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.title}>{title || 'An out of this world stow away'} hosted by {hostName || 'TARS'} <i>Insert host picture here</i></div>
+      <div className={styles.title}>
+        {title || 'An out of this world stow away'} hosted by {hostName || 'TARS'}
+
+        <div className={styles.avatarWrapper}>
+          <div className={styles.avatarWrapper2}>
+            <img className={styles.avatar}>
+          </div>
+        </div>
+      </div>
       <div className={listingStyles.subtitle}>{maxGuestCount} guests · {bedroomCount} bedroom{bedroomCount > 1 && 's'} · {bedCount} bed{bedCount > 1 && 's'} · {bathroomCount} bath{bathroomCount > 1 && 's'}</div>
     </div>
   );
