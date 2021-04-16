@@ -38,10 +38,14 @@ export default (state = initialState, action) => {
     };
   case 'HOST_INFO_LOADED':
     let {
-      // avatarURL,
-      hostName
-    } = action.data;
+      data
+    } = action;
 
+    let hostName = '';
+
+    if (data) {
+      hostName = data.hostName;
+    }
 
     return {
       ...state,
