@@ -49,8 +49,12 @@ export default (state = initialState, action) => {
 
     return {
       ...state,
-      hostName,
-      // avatarURL
+      hostName
+    }
+  case 'LOAD_AVATAR':
+    return {
+      ...state,
+      avatarURL: action.data
     }
   default:
     return state;

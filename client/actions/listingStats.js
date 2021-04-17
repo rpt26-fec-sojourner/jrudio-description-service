@@ -37,3 +37,14 @@ export const getHostInfo = (id = 1) => {
       });
   };
 };
+
+export const getAvatar = (id = '') => {
+  const avatarURL = `https://airbnbhostpictures.s3.amazonaws.com/pic-${id}.jpg`;
+
+  return dispatch => {
+    dispatch({
+      type: 'LOAD_AVATAR',
+      data: avatarURL
+    });
+  };
+};

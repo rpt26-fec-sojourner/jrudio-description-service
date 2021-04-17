@@ -5,6 +5,15 @@
   font-weight: 600;
   line-height: 26px;
   margin-bottom: 8px;
+  flex: 0 1 100%;
+}
+
+.block {
+  display: block;
+}
+
+.titleWrapper {
+  display: flex;
 }
 
 .stats {
@@ -15,4 +24,66 @@
 .wrapper {
   padding-top: 48px;
   padding-bottom: 24px;
+}
+
+.avatarWrapper {
+  margin-bottom: 0px;
+  margin-left: 16px;
+}
+
+.avatarWrapper2 {
+  width: 56px;
+  height: 56px;
+  display: block;
+  position: relative;
+}
+
+.avatarWrapper3 {
+  width: 56px;
+  height: 56px;
+  background: rgb(221, 221, 221);
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.avatarWrapper4 {
+  display: inline-block;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  min-height: 1px;
+}
+
+.avatarButton {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-variant: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+  appearance: none;
+  background: transparent;
+  border: 0px;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+  user-select: auto;
+  display: block;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  border-radius: 50%;
+}
+
+.avatar {
+  object-fit: cover;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  position: static;
 }
