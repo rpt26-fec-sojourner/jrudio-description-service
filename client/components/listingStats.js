@@ -64,6 +64,9 @@ const ListingStats = (props) => {
               {maxGuestCount} guests · {bedroomCount} bedroom{bedroomCount > 1 && 's'} · {bedCount} bed{bedCount > 1 && 's'} · {bathroomCount} bath{bathroomCount > 1 && 's'}
             </div>
 
+
+          </div>
+
             {/* avatar */}
             <div className={styles.avatarWrapper}>
               <div className={styles.avatarWrapper2}>
@@ -81,8 +84,6 @@ const ListingStats = (props) => {
                 </div>
               </button>
             </div>
-          </div>
-
 
           </div>
         </div>
