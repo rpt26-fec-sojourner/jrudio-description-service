@@ -18,7 +18,7 @@
     "linter": "npx eslint .",
     "start": "node server/index.js",
     "seed-db": "SEED_DB=true node server/database/seed.js",
-    "test": "jest --coverage --detectOpenHandles --config jest.config.js spec.js",
+    "test": "npx webpack --mode development --entry ./tests/unit.spec.js --output-path ./tests/compiled && mocha ./tests/compiled/main.js",
     "build": "webpack --mode production --progress",
     "serve": "webpack --watch --progress --mode development"
   },
@@ -48,8 +48,10 @@
     "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^26.6.3",
+    "mocha": "^8.3.2",
     "mongodb-memory-server": "^6.9.6",
     "node-fetch": "^2.6.1",
     "webpack-dev-server": "^3.11.2"
